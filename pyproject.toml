@@ -1,0 +1,198 @@
+[project]
+name = "mcp-data-science"
+version = "0.3.0"
+description = "Advanced Data Science MCP Server with ML/DL, AutoML, AutoKeras, SHAP, Smart Sampling, Interactive Visualization, and Task Management"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "MCP Data Science Team"},
+]
+keywords = [
+    "mcp",
+    "data-science",
+    "machine-learning",
+    "deep-learning",
+    "automl",
+    "autokeras",
+    "visualization",
+    "sampling",
+    "task-management"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+dependencies = [
+    "fastmcp>=0.1.0",
+    "uvicorn>=0.20.0",
+    "fastapi>=0.100.0",
+    "python-multipart>=0.0.6",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "scikit-learn>=1.3.0",
+    "joblib>=1.3.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+# Machine Learning boosting algorithms
+ml = [
+    "xgboost>=2.0.0",
+    "lightgbm>=4.0.0",
+    "catboost>=1.2",
+]
+
+# Deep Learning and AutoML
+dl = [
+    "tensorflow>=2.14.0",
+    "autokeras>=1.1.0",
+    "keras-tuner>=1.4.0",
+]
+
+# Statistical analysis
+stats = [
+    "statsmodels>=0.14.0",
+]
+
+# Model interpretation
+interpret = [
+    "shap>=0.43.0",
+]
+
+# Visualization
+viz = [
+    "plotly>=5.17.0",
+]
+
+# Advanced analytics
+advanced = [
+    "umap-learn>=0.5.4",
+    "hdbscan>=0.8.33",
+    "imbalanced-learn>=0.11.0",
+    "optuna>=3.4.0",
+]
+
+# Image processing
+image = [
+    "Pillow>=10.0.0",
+]
+
+# LLM integration
+llm = [
+    "openai>=1.30.0",
+]
+
+# Development tools
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+    "flake8>=6.1.0",
+]
+
+# All features combined
+all = [
+    # ML packages
+    "xgboost>=2.0.0",
+    "lightgbm>=4.0.0",
+    "catboost>=1.2",
+    # DL packages
+    "tensorflow>=2.14.0",
+    "autokeras>=1.1.0",
+    "keras-tuner>=1.4.0",
+    # Stats packages
+    "statsmodels>=0.14.0",
+    # Interpretation
+    "shap>=0.43.0",
+    # Visualization
+    "plotly>=5.17.0",
+    # Advanced analytics
+    "umap-learn>=0.5.4",
+    "hdbscan>=0.8.33",
+    "imbalanced-learn>=0.11.0",
+    "optuna>=3.4.0",
+    # Image processing
+    "Pillow>=10.0.0",
+    # LLM integration
+    "openai>=1.30.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your-org/mcp-data-science"
+"Bug Reports" = "https://github.com/your-org/mcp-data-science/issues"
+"Documentation" = "https://github.com/your-org/mcp-data-science/wiki"
+"Source" = "https://github.com/your-org/mcp-data-science"
+
+[project.scripts]
+mcp-data-science = "mcp_data_science:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "mcp_data_science.py"
+pattern = '__version__ = "(?P<version>.*)"'
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/mcp_data_science.py",
+    "/pyproject.toml",
+    "/README.md",
+    "/LICENSE",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["mcp_data_science"]
+omit = ["tests/*", "setup.py", "*/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if __name__ == .__main__.:",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
