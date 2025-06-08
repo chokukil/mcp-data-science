@@ -467,7 +467,7 @@ python mcp_data_science.py --port 8008
 
 ## 🎯 MCP 호출 예제
 
-다음은 Claude Desktop에서 데이터 사이언스 MCP 서버를 사용하는 실제 예제입니다.
+다음은 Cursor에서 데이터 사이언스 MCP 서버를 사용하는 실제 예제입니다.
 
 ![MCP 사용 예제](images/mcp_sample.jpg)
 
@@ -479,7 +479,7 @@ python mcp_data_science.py --port 8008
 ```plaintext
 사용자: "CSV 파일을 업로드하고 데이터 분석을 해주세요."
 
-Claude: upload_local_file() → load_dataset() → perform_eda() → auto_ml_pipeline()
+Cursor: upload_local_file() → load_dataset() → perform_eda() → auto_ml_pipeline()
 ```
 
 ### 🔍 단계별 MCP 도구 호출
@@ -488,14 +488,14 @@ Claude: upload_local_file() → load_dataset() → perform_eda() → auto_ml_pip
 ```plaintext
 사용자: "데이터 사이언스 서버가 정상 작동하는지 확인해주세요."
 
-Claude가 호출: health_check()
+Cursor가 호출: health_check()
 ```
 
 #### 2. 파일 업로드
 ```plaintext
 사용자: "로컬에 있는 sales_data.csv 파일을 분석해주세요."
 
-Claude가 호출:
+Cursor가 호출:
 1. upload_local_file('/path/to/sales_data.csv')
 2. load_dataset('sales_data_20241207_143052.csv')
 ```
@@ -504,7 +504,7 @@ Claude가 호출:
 ```plaintext
 사용자: "데이터의 기본 특성과 분포를 확인해주세요."
 
-Claude가 호출:
+Cursor가 호출:
 1. perform_eda(dataset_id='dataset_123')
 2. create_visualization(dataset_id='dataset_123', plot_type='pairplot')
 ```
@@ -513,7 +513,7 @@ Claude가 호출:
 ```plaintext
 사용자: "매출 예측 모델을 만들어주세요."
 
-Claude가 호출:
+Cursor가 호출:
 1. auto_ml_pipeline(
      dataset_id='dataset_123',
      target_column='sales',
@@ -525,7 +525,7 @@ Claude가 호출:
 ```plaintext
 사용자: "전체 분석 결과를 정리한 보고서를 만들어주세요."
 
-Claude가 호출:
+Cursor가 호출:
 1. generate_comprehensive_report()
 2. list_generated_code()
 ```
@@ -536,7 +536,7 @@ Claude가 호출:
 ```plaintext
 사용자: "500MB 고객 데이터를 분석해주세요. 메모리 효율적으로 처리해주세요."
 
-Claude의 자동 처리:
+Cursor의 자동 처리:
 1. upload_local_file() → 자동 샘플링 감지
 2. load_dataset() → 층화표집으로 30,000행 샘플 생성
 3. perform_eda() → 샘플 데이터로 EDA 수행
@@ -547,7 +547,7 @@ Claude의 자동 처리:
 ```plaintext
 사용자: "이 데이터셋으로 무엇을 분석할 수 있는지 알려주세요."
 
-Claude가 호출:
+Cursor가 호출:
 1. load_dataset() → 자동 문제 유형 감지
 2. 결과: "분류 문제로 감지, 추천 타겟: 'customer_churn'"
 ```
@@ -556,7 +556,7 @@ Claude가 호출:
 ```plaintext
 사용자: "연령대별 구매 패턴을 시각화해주세요."
 
-Claude가 호출:
+Cursor가 호출:
 create_visualization(
   dataset_id='dataset_123',
   plot_type='boxplot',
