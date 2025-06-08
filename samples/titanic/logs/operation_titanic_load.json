@@ -1,0 +1,339 @@
+{
+  "id": "titanic_load",
+  "type": "load_dataset",
+  "timestamp": "2025-06-09T01:00:29.004370",
+  "input": {
+    "file_path": "C:\\langfuse\\cherry\\sandbox\\datasets\\titanic.csv",
+    "target_column": "Survived",
+    "file_size_mb": 0.103271484375
+  },
+  "output": {
+    "operation_id": "titanic_load",
+    "dataset_id": "dataset_titanic_load",
+    "status": "success",
+    "file_info": {
+      "original_file": "C:\\langfuse\\cherry\\sandbox\\datasets\\titanic.csv",
+      "file_size_mb": 0.1,
+      "original_rows": 1310,
+      "original_columns": 14
+    },
+    "problem_analysis": {
+      "detected_type": "clustering",
+      "supervised_potential": true,
+      "recommended_targets": [
+        {
+          "column": "pclass",
+          "dtype": "float64",
+          "unique_count": 3,
+          "missing_ratio": 0.0007633587786259542,
+          "suitability_score": 90,
+          "suggested_type": "classification",
+          "reasons": [
+            "Column name suggests target variable",
+            "Discrete numeric with 3 values"
+          ]
+        },
+        {
+          "column": "survived",
+          "dtype": "float64",
+          "unique_count": 2,
+          "missing_ratio": 0.0007633587786259542,
+          "suitability_score": 90,
+          "suggested_type": "classification",
+          "reasons": [
+            "Column name suggests target variable",
+            "Discrete numeric with 2 values"
+          ]
+        },
+        {
+          "column": "fare",
+          "dtype": "float64",
+          "unique_count": 281,
+          "missing_ratio": 0.0015267175572519084,
+          "suitability_score": 80,
+          "suggested_type": "regression",
+          "reasons": [
+            "Continuous numeric variable"
+          ]
+        }
+      ]
+    },
+    "sampling_info": {
+      "strategy": {
+        "sampling_needed": false,
+        "reason": "File size (0.1MB) is under 100MB threshold",
+        "method": null,
+        "sample_size": 1310,
+        "sample_ratio": 1.0
+      },
+      "details": {
+        "applied": false,
+        "message": "No sampling applied"
+      },
+      "final_rows": 1310,
+      "data_reduction": "0%"
+    },
+    "summary": {
+      "shape": [
+        1310,
+        14
+      ],
+      "columns": [
+        "pclass",
+        "survived",
+        "name",
+        "sex",
+        "age",
+        "sibsp",
+        "parch",
+        "ticket",
+        "fare",
+        "cabin",
+        "embarked",
+        "boat",
+        "body",
+        "home.dest"
+      ],
+      "dtypes": {
+        "pclass": "float64",
+        "survived": "float64",
+        "name": "object",
+        "sex": "object",
+        "age": "float64",
+        "sibsp": "float64",
+        "parch": "float64",
+        "ticket": "object",
+        "fare": "float64",
+        "cabin": "object",
+        "embarked": "object",
+        "boat": "object",
+        "body": "float64",
+        "home.dest": "object"
+      },
+      "memory_usage_mb": 0.5243616104125977,
+      "missing_values": {
+        "pclass": 1,
+        "survived": 1,
+        "name": 1,
+        "sex": 1,
+        "age": 264,
+        "sibsp": 1,
+        "parch": 1,
+        "ticket": 1,
+        "fare": 2,
+        "cabin": 1015,
+        "embarked": 3,
+        "boat": 824,
+        "body": 1189,
+        "home.dest": 565
+      },
+      "numeric_columns": [
+        "pclass",
+        "survived",
+        "age",
+        "sibsp",
+        "parch",
+        "fare",
+        "body"
+      ],
+      "categorical_columns": [
+        "name",
+        "sex",
+        "ticket",
+        "cabin",
+        "embarked",
+        "boat",
+        "home.dest"
+      ],
+      "sampling_info": {
+        "is_sampled": false,
+        "note": "Full dataset used for analysis"
+      },
+      "head": {
+        "pclass": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        },
+        "survived": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "name": {
+          "0": "Allen, Miss. Elisabeth Walton",
+          "1": "Allison, Master. Hudson Trevor",
+          "2": "Allison, Miss. Helen Loraine",
+          "3": "Allison, Mr. Hudson Joshua Creighton",
+          "4": "Allison, Mrs. Hudson J C (Bessie Waldo Daniels)"
+        },
+        "sex": {
+          "0": "female",
+          "1": "male",
+          "2": "female",
+          "3": "male",
+          "4": "female"
+        },
+        "age": {
+          "0": 29.0,
+          "1": 0.9167,
+          "2": 2.0,
+          "3": 30.0,
+          "4": 25.0
+        },
+        "sibsp": {
+          "0": 0.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        },
+        "parch": {
+          "0": 0.0,
+          "1": 2.0,
+          "2": 2.0,
+          "3": 2.0,
+          "4": 2.0
+        },
+        "ticket": {
+          "0": "24160",
+          "1": "113781",
+          "2": "113781",
+          "3": "113781",
+          "4": "113781"
+        },
+        "fare": {
+          "0": 211.3375,
+          "1": 151.55,
+          "2": 151.55,
+          "3": 151.55,
+          "4": 151.55
+        },
+        "cabin": {
+          "0": "B5",
+          "1": "C22 C26",
+          "2": "C22 C26",
+          "3": "C22 C26",
+          "4": "C22 C26"
+        },
+        "embarked": {
+          "0": "S",
+          "1": "S",
+          "2": "S",
+          "3": "S",
+          "4": "S"
+        },
+        "boat": {
+          "0": "2",
+          "1": "11",
+          "2": null,
+          "3": null,
+          "4": null
+        },
+        "body": {
+          "0": null,
+          "1": null,
+          "2": null,
+          "3": 135.0,
+          "4": null
+        },
+        "home.dest": {
+          "0": "St Louis, MO",
+          "1": "Montreal, PQ / Chesterville, ON",
+          "2": "Montreal, PQ / Chesterville, ON",
+          "3": "Montreal, PQ / Chesterville, ON",
+          "4": "Montreal, PQ / Chesterville, ON"
+        }
+      },
+      "describe_sample": {
+        "pclass": {
+          "count": 1000.0,
+          "mean": 2.301,
+          "std": 0.837317204,
+          "min": 1.0,
+          "25%": 2.0,
+          "50%": 3.0,
+          "75%": 3.0,
+          "max": 3.0
+        },
+        "survived": {
+          "count": 1000.0,
+          "mean": 0.382,
+          "std": 0.4861196481,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.0,
+          "max": 1.0
+        },
+        "age": {
+          "count": 793.0,
+          "mean": 29.7822615385,
+          "std": 14.2494380792,
+          "min": 0.1667,
+          "25%": 21.0,
+          "50%": 28.0,
+          "75%": 38.0,
+          "max": 80.0
+        },
+        "sibsp": {
+          "count": 1000.0,
+          "mean": 0.531,
+          "std": 1.0872999684,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.0,
+          "max": 8.0
+        },
+        "parch": {
+          "count": 1000.0,
+          "mean": 0.393,
+          "std": 0.8850617687,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 9.0
+        },
+        "fare": {
+          "count": 999.0,
+          "mean": 34.0866325325,
+          "std": 54.2975750447,
+          "min": 0.0,
+          "25%": 7.8958,
+          "50%": 14.5,
+          "75%": 31.33125,
+          "max": 512.3292
+        },
+        "body": {
+          "count": 94.0,
+          "mean": 159.7553191489,
+          "std": 100.7601950518,
+          "min": 1.0,
+          "25%": 68.25,
+          "50%": 150.5,
+          "75%": 259.5,
+          "max": 328.0
+        }
+      },
+      "note": "Large dataset (1310 rows). Showing sample statistics."
+    },
+    "dataset_file": "C:\\langfuse\\cherry\\sandbox\\datasets\\dataset_titanic_load.csv",
+    "generated_code": "C:\\langfuse\\cherry\\sandbox\\generated_code\\titanic_load_data_loading.py",
+    "recommendations": [
+      "🔗 Clustering analysis suggested - will auto-optimize cluster count",
+      "✅ Using full dataset - no sampling applied"
+    ]
+  },
+  "files_created": [
+    "C:\\langfuse\\cherry\\sandbox\\datasets\\dataset_titanic_load.csv",
+    "C:\\langfuse\\cherry\\sandbox\\generated_code\\titanic_load_data_loading.py"
+  ],
+  "metrics": {},
+  "status": "completed"
+}

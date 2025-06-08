@@ -1,0 +1,24 @@
+{
+  "id": "titanic_upload",
+  "type": "copy_file_to_sandbox",
+  "timestamp": "2025-06-09T01:00:25.560868",
+  "input": {
+    "source_path": "C:\\langfuse\\cherry\\titanic.csv",
+    "target_filename": "titanic.csv"
+  },
+  "output": {
+    "operation_id": "titanic_upload",
+    "status": "success",
+    "message": "File copied successfully",
+    "source_path": "C:\\langfuse\\cherry\\titanic.csv",
+    "destination_path": "C:\\langfuse\\cherry\\sandbox\\datasets\\titanic.csv",
+    "filename": "titanic.csv",
+    "file_size_mb": 0.1,
+    "copied_at": "2025-06-09T01:00:25.560868"
+  },
+  "files_created": [
+    "C:\\langfuse\\cherry\\sandbox\\datasets\\titanic.csv"
+  ],
+  "metrics": {},
+  "status": "completed"
+}

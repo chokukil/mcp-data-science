@@ -1,0 +1,453 @@
+{
+  "operation_id": "titanic_eda",
+  "dataset_id": "dataset_titanic_load",
+  "analysis": {
+    "basic_info": {
+      "shape": [
+        1310,
+        14
+      ],
+      "columns": [
+        "pclass",
+        "survived",
+        "name",
+        "sex",
+        "age",
+        "sibsp",
+        "parch",
+        "ticket",
+        "fare",
+        "cabin",
+        "embarked",
+        "boat",
+        "body",
+        "home.dest"
+      ],
+      "dtypes": {
+        "pclass": "float64",
+        "survived": "float64",
+        "name": "object",
+        "sex": "object",
+        "age": "float64",
+        "sibsp": "float64",
+        "parch": "float64",
+        "ticket": "object",
+        "fare": "float64",
+        "cabin": "object",
+        "embarked": "object",
+        "boat": "object",
+        "body": "float64",
+        "home.dest": "object"
+      },
+      "memory_usage_mb": 0.5243616104125977,
+      "missing_values": {
+        "pclass": 1,
+        "survived": 1,
+        "name": 1,
+        "sex": 1,
+        "age": 264,
+        "sibsp": 1,
+        "parch": 1,
+        "ticket": 1,
+        "fare": 2,
+        "cabin": 1015,
+        "embarked": 3,
+        "boat": 824,
+        "body": 1189,
+        "home.dest": 565
+      },
+      "numeric_columns": [
+        "pclass",
+        "survived",
+        "age",
+        "sibsp",
+        "parch",
+        "fare",
+        "body"
+      ],
+      "categorical_columns": [
+        "name",
+        "sex",
+        "ticket",
+        "cabin",
+        "embarked",
+        "boat",
+        "home.dest"
+      ],
+      "sampling_info": {
+        "is_sampled": false,
+        "note": "Full dataset used for analysis"
+      },
+      "head": {
+        "pclass": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        },
+        "survived": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "name": {
+          "0": "Allen, Miss. Elisabeth Walton",
+          "1": "Allison, Master. Hudson Trevor",
+          "2": "Allison, Miss. Helen Loraine",
+          "3": "Allison, Mr. Hudson Joshua Creighton",
+          "4": "Allison, Mrs. Hudson J C (Bessie Waldo Daniels)"
+        },
+        "sex": {
+          "0": "female",
+          "1": "male",
+          "2": "female",
+          "3": "male",
+          "4": "female"
+        },
+        "age": {
+          "0": 29.0,
+          "1": 0.9167,
+          "2": 2.0,
+          "3": 30.0,
+          "4": 25.0
+        },
+        "sibsp": {
+          "0": 0.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        },
+        "parch": {
+          "0": 0.0,
+          "1": 2.0,
+          "2": 2.0,
+          "3": 2.0,
+          "4": 2.0
+        },
+        "ticket": {
+          "0": "24160",
+          "1": "113781",
+          "2": "113781",
+          "3": "113781",
+          "4": "113781"
+        },
+        "fare": {
+          "0": 211.3375,
+          "1": 151.55,
+          "2": 151.55,
+          "3": 151.55,
+          "4": 151.55
+        },
+        "cabin": {
+          "0": "B5",
+          "1": "C22 C26",
+          "2": "C22 C26",
+          "3": "C22 C26",
+          "4": "C22 C26"
+        },
+        "embarked": {
+          "0": "S",
+          "1": "S",
+          "2": "S",
+          "3": "S",
+          "4": "S"
+        },
+        "boat": {
+          "0": "2",
+          "1": "11",
+          "2": null,
+          "3": null,
+          "4": null
+        },
+        "body": {
+          "0": null,
+          "1": null,
+          "2": null,
+          "3": 135.0,
+          "4": null
+        },
+        "home.dest": {
+          "0": "St Louis, MO",
+          "1": "Montreal, PQ / Chesterville, ON",
+          "2": "Montreal, PQ / Chesterville, ON",
+          "3": "Montreal, PQ / Chesterville, ON",
+          "4": "Montreal, PQ / Chesterville, ON"
+        }
+      },
+      "describe_sample": {
+        "pclass": {
+          "count": 999.0,
+          "mean": 2.2772772773,
+          "std": 0.8423855537,
+          "min": 1.0,
+          "25%": 1.0,
+          "50%": 3.0,
+          "75%": 3.0,
+          "max": 3.0
+        },
+        "survived": {
+          "count": 999.0,
+          "mean": 0.3843843844,
+          "std": 0.4866930621,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.0,
+          "max": 1.0
+        },
+        "age": {
+          "count": 801.0,
+          "mean": 29.8894091136,
+          "std": 14.2979122706,
+          "min": 0.1667,
+          "25%": 21.0,
+          "50%": 28.0,
+          "75%": 39.0,
+          "max": 76.0
+        },
+        "sibsp": {
+          "count": 999.0,
+          "mean": 0.5025025025,
+          "std": 1.0382194098,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.0,
+          "max": 8.0
+        },
+        "parch": {
+          "count": 999.0,
+          "mean": 0.3793793794,
+          "std": 0.8675947536,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 9.0
+        },
+        "fare": {
+          "count": 999.0,
+          "mean": 33.8879875876,
+          "std": 51.7273530003,
+          "min": 0.0,
+          "25%": 7.9104,
+          "50%": 14.5,
+          "75%": 31.44375,
+          "max": 512.3292
+        },
+        "body": {
+          "count": 93.0,
+          "mean": 156.5591397849,
+          "std": 95.7233857172,
+          "min": 7.0,
+          "25%": 75.0,
+          "50%": 147.0,
+          "75%": 236.0,
+          "max": 328.0
+        }
+      },
+      "note": "Large dataset (1310 rows). Showing sample statistics."
+    },
+    "correlation": {
+      "pclass": {
+        "pclass": 1.0,
+        "survived": -0.3124693626,
+        "age": -0.4081057361,
+        "sibsp": 0.0608320076,
+        "parch": 0.018322202,
+        "fare": -0.5586287323,
+        "body": -0.0346419352
+      },
+      "survived": {
+        "pclass": -0.3124693626,
+        "survived": 1.0,
+        "age": -0.0555125202,
+        "sibsp": -0.0278251192,
+        "parch": 0.0826595704,
+        "fare": 0.2442654689,
+        "body": null
+      },
+      "age": {
+        "pclass": -0.4081057361,
+        "survived": -0.0555125202,
+        "age": 1.0,
+        "sibsp": -0.2436994877,
+        "parch": -0.1509174345,
+        "fare": 0.1787393231,
+        "body": 0.058808732
+      },
+      "sibsp": {
+        "pclass": 0.0608320076,
+        "survived": -0.0278251192,
+        "age": -0.2436994877,
+        "sibsp": 1.0,
+        "parch": 0.3735871906,
+        "fare": 0.1602382559,
+        "body": -0.0999605332
+      },
+      "parch": {
+        "pclass": 0.018322202,
+        "survived": 0.0826595704,
+        "age": -0.1509174345,
+        "sibsp": 0.3735871906,
+        "parch": 1.0,
+        "fare": 0.2215386585,
+        "body": 0.0510992507
+      },
+      "fare": {
+        "pclass": -0.5586287323,
+        "survived": 0.2442654689,
+        "age": 0.1787393231,
+        "sibsp": 0.1602382559,
+        "parch": 0.2215386585,
+        "fare": 1.0,
+        "body": -0.043110176
+      },
+      "body": {
+        "pclass": -0.0346419352,
+        "survived": null,
+        "age": 0.058808732,
+        "sibsp": -0.0999605332,
+        "parch": 0.0510992507,
+        "fare": -0.043110176,
+        "body": 1.0
+      }
+    },
+    "strong_correlations": [],
+    "outlier_analysis": {
+      "pclass": {
+        "count": 0,
+        "percentage": 0.0,
+        "lower_bound": 0.5,
+        "upper_bound": 4.5
+      },
+      "survived": {
+        "count": 0,
+        "percentage": 0.0,
+        "lower_bound": -1.5,
+        "upper_bound": 2.5
+      },
+      "age": {
+        "count": 9,
+        "percentage": 0.6870229007633588,
+        "lower_bound": -6.0,
+        "upper_bound": 66.0
+      },
+      "sibsp": {
+        "count": 57,
+        "percentage": 4.351145038167939,
+        "lower_bound": -1.5,
+        "upper_bound": 2.5
+      },
+      "parch": {
+        "count": 307,
+        "percentage": 23.435114503816795,
+        "lower_bound": 0.0,
+        "upper_bound": 0.0
+      },
+      "fare": {
+        "count": 171,
+        "percentage": 13.053435114503817,
+        "lower_bound": -27.172999999999995,
+        "upper_bound": 66.34379999999999
+      },
+      "body": {
+        "count": 0,
+        "percentage": 0.0,
+        "lower_bound": -204.0,
+        "upper_bound": 532.0
+      }
+    },
+    "data_types": {
+      "numeric": {
+        "count": 7,
+        "columns": [
+          "pclass",
+          "survived",
+          "age",
+          "sibsp",
+          "parch",
+          "fare",
+          "body"
+        ],
+        "statistics": {}
+      },
+      "categorical": {
+        "count": 7,
+        "columns": [
+          "name",
+          "sex",
+          "ticket",
+          "cabin",
+          "embarked",
+          "boat",
+          "home.dest"
+        ],
+        "cardinality": {
+          "name": {
+            "unique_values": 1307,
+            "cardinality_level": "high"
+          },
+          "sex": {
+            "unique_values": 2,
+            "cardinality_level": "low"
+          },
+          "ticket": {
+            "unique_values": 929,
+            "cardinality_level": "high"
+          },
+          "cabin": {
+            "unique_values": 186,
+            "cardinality_level": "high"
+          },
+          "embarked": {
+            "unique_values": 3,
+            "cardinality_level": "low"
+          },
+          "boat": {
+            "unique_values": 27,
+            "cardinality_level": "medium"
+          },
+          "home.dest": {
+            "unique_values": 369,
+            "cardinality_level": "high"
+          }
+        }
+      },
+      "datetime": {
+        "count": 0,
+        "columns": []
+      }
+    }
+  },
+  "plots_generated": [
+    "C:\\langfuse\\cherry\\sandbox\\plots\\titanic_eda_advanced_dashboard.png",
+    "C:\\langfuse\\cherry\\sandbox\\plots\\titanic_eda_dimensionality_reduction.png",
+    "C:\\langfuse\\cherry\\sandbox\\plots\\titanic_eda_interactive_scatter.html"
+  ],
+  "insights": [
+    "✅ Analysis performed on complete dataset",
+    "⚠️ High missing data ratio: 21.1% - advanced imputation needed",
+    "📊 High outlier columns: parch, fare - consider robust methods",
+    "🏷️ High cardinality columns: name, ticket, cabin - need advanced encoding"
+  ],
+  "recommendations": [
+    "🔬 Consider advanced dimensionality reduction (t-SNE, UMAP)",
+    "🎯 Dataset suitable for advanced machine learning algorithms",
+    "🔧 High cardinality detected - use frequency or target encoding",
+    "📊 Create pair plots for deeper variable relationships",
+    "🎨 3 advanced visualizations generated - review for patterns",
+    "🔧 Apply advanced imputation strategies for missing values",
+    "📊 Consider outlier treatment or robust algorithms"
+  ],
+  "generated_code": "C:\\langfuse\\cherry\\sandbox\\generated_code\\titanic_eda_eda.py",
+  "status": "success",
+  "sampling_info": {
+    "data_is_sampled": false,
+    "note": "Analysis performed on full dataset"
+  }
+}

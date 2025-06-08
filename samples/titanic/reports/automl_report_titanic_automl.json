@@ -1,0 +1,377 @@
+{
+  "operation_id": "titanic_automl",
+  "dataset_id": "dataset_titanic_load",
+  "target_column": "survived",
+  "problem_type": "classification",
+  "supervised_analysis": {
+    "has_potential": true,
+    "recommended_targets": [
+      {
+        "column": "pclass",
+        "dtype": "float64",
+        "unique_count": 3,
+        "missing_ratio": 0.0007633587786259542,
+        "suitability_score": 90,
+        "suggested_type": "classification",
+        "reasons": [
+          "Column name suggests target variable",
+          "Discrete numeric with 3 values"
+        ]
+      },
+      {
+        "column": "survived",
+        "dtype": "float64",
+        "unique_count": 2,
+        "missing_ratio": 0.0007633587786259542,
+        "suitability_score": 90,
+        "suggested_type": "classification",
+        "reasons": [
+          "Column name suggests target variable",
+          "Discrete numeric with 2 values"
+        ]
+      },
+      {
+        "column": "fare",
+        "dtype": "float64",
+        "unique_count": 281,
+        "missing_ratio": 0.0015267175572519084,
+        "suitability_score": 80,
+        "suggested_type": "regression",
+        "reasons": [
+          "Continuous numeric variable"
+        ]
+      },
+      {
+        "column": "sex",
+        "dtype": "object",
+        "unique_count": 2,
+        "missing_ratio": 0.0007633587786259542,
+        "suitability_score": 70,
+        "suggested_type": "classification",
+        "reasons": [
+          "Categorical with 2 classes"
+        ]
+      },
+      {
+        "column": "embarked",
+        "dtype": "object",
+        "unique_count": 3,
+        "missing_ratio": 0.0022900763358778627,
+        "suitability_score": 70,
+        "suggested_type": "classification",
+        "reasons": [
+          "Categorical with 3 classes"
+        ]
+      }
+    ],
+    "analysis_details": {
+      "total_columns": 14,
+      "candidates_found": 7,
+      "best_candidate": {
+        "column": "pclass",
+        "dtype": "float64",
+        "unique_count": 3,
+        "missing_ratio": 0.0007633587786259542,
+        "suitability_score": 90,
+        "suggested_type": "classification",
+        "reasons": [
+          "Column name suggests target variable",
+          "Discrete numeric with 3 values"
+        ]
+      }
+    }
+  },
+  "preprocessing_steps": [
+    "pclass: filled with median",
+    "survived: filled with median",
+    "name: filled with mode",
+    "sex: filled with mode",
+    "age: filled with median",
+    "sibsp: filled with median",
+    "parch: filled with median",
+    "ticket: filled with mode",
+    "fare: filled with median",
+    "cabin: filled with mode",
+    "embarked: filled with mode",
+    "boat: filled with mode",
+    "body: filled with median",
+    "home.dest: filled with mode",
+    "name: frequency encoding",
+    "sex: one-hot encoding",
+    "ticket: frequency encoding",
+    "cabin: frequency encoding",
+    "embarked: one-hot encoding",
+    "boat: frequency encoding",
+    "home.dest: frequency encoding"
+  ],
+  "model_results": {
+    "Random Forest": {
+      "cv_score": 0.9436773752563224,
+      "cv_std": 0.020661990986693368,
+      "test_accuracy": 0.9351145038167938,
+      "precision": 0.936216053934013,
+      "recall": 0.9351145038167938,
+      "f1_score": 0.9344626189676348,
+      "roc_auc": 0.9828395061728395
+    },
+    "Gradient Boosting": {
+      "cv_score": 0.9446343130553657,
+      "cv_std": 0.029127622645180668,
+      "test_accuracy": 0.9389312977099237,
+      "precision": 0.9415755342314964,
+      "recall": 0.9389312977099237,
+      "f1_score": 0.9380728091139006,
+      "roc_auc": 0.987037037037037
+    },
+    "Extra Trees": {
+      "cv_score": 0.9360355434039643,
+      "cv_std": 0.020722350255472446,
+      "test_accuracy": 0.9427480916030534,
+      "precision": 0.9428864248201067,
+      "recall": 0.9427480916030534,
+      "f1_score": 0.9424491376740848,
+      "roc_auc": 0.9768518518518519
+    },
+    "Logistic Regression": {
+      "cv_score": 0.9503485987696514,
+      "cv_std": 0.02852359396628684,
+      "test_accuracy": 0.9236641221374046,
+      "precision": 0.9257938692000287,
+      "recall": 0.9236641221374046,
+      "f1_score": 0.9225910113923758,
+      "roc_auc": 0.9723148148148147
+    },
+    "SVM": {
+      "cv_score": 0.9484438368648895,
+      "cv_std": 0.027511334417749306,
+      "test_accuracy": 0.9274809160305344,
+      "precision": 0.9303064716278721,
+      "recall": 0.9274809160305344,
+      "f1_score": 0.9263589352490204,
+      "roc_auc": 0.9629938271604939
+    },
+    "K-Nearest Neighbors": {
+      "cv_score": 0.9274641148325358,
+      "cv_std": 0.02486550013615285,
+      "test_accuracy": 0.9083969465648855,
+      "precision": 0.9082490313000301,
+      "recall": 0.9083969465648855,
+      "f1_score": 0.9078131595326843,
+      "roc_auc": 0.947067901234568
+    },
+    "Naive Bayes": {
+      "cv_score": 0.48853953064479383,
+      "cv_std": 0.021639557536022966,
+      "test_accuracy": 0.4961832061068702,
+      "precision": 0.7632861765682044,
+      "recall": 0.4961832061068702,
+      "f1_score": 0.42661525143621626,
+      "roc_auc": 0.9539197530864197
+    },
+    "Decision Tree": {
+      "cv_score": 0.9188881294144451,
+      "cv_std": 0.02133959177216873,
+      "test_accuracy": 0.916030534351145,
+      "precision": 0.9158101520258076,
+      "recall": 0.916030534351145,
+      "f1_score": 0.9158640211887998,
+      "roc_auc": 0.9134567901234569
+    },
+    "MLP": {
+      "cv_score": 0.9322169059011165,
+      "cv_std": 0.025270297096480702,
+      "test_accuracy": 0.9198473282442748,
+      "precision": 0.920595675919099,
+      "recall": 0.9198473282442748,
+      "f1_score": 0.9190420587247252,
+      "roc_auc": 0.9739814814814816
+    },
+    "Gaussian Process": {
+      "cv_score": 0.9331920710868079,
+      "cv_std": 0.028374776150801934,
+      "test_accuracy": 0.9236641221374046,
+      "precision": 0.923730829021555,
+      "recall": 0.9236641221374046,
+      "f1_score": 0.9231776329439035,
+      "roc_auc": 0.947932098765432
+    },
+    "QDA": {
+      "cv_score": 0.5763226247436773,
+      "cv_std": 0.04172320420757296,
+      "test_accuracy": 0.5343511450381679,
+      "precision": 0.7178228895786147,
+      "recall": 0.5343511450381679,
+      "f1_score": 0.4972901568832316,
+      "roc_auc": 0.678858024691358
+    },
+    "XGBoost": {
+      "cv_score": 0.9408065618591934,
+      "cv_std": 0.025466181271841255,
+      "test_accuracy": 0.9389312977099237,
+      "precision": 0.9397590831885361,
+      "recall": 0.9389312977099237,
+      "f1_score": 0.9383948005763512,
+      "roc_auc": 0.9853395061728395
+    },
+    "LightGBM": {
+      "cv_score": 0.9408156755525174,
+      "cv_std": 0.02415400664778534,
+      "test_accuracy": 0.9389312977099237,
+      "precision": 0.9405438191608971,
+      "recall": 0.9389312977099237,
+      "f1_score": 0.9382384287271179,
+      "roc_auc": 0.9889814814814815
+    },
+    "CatBoost": {
+      "cv_score": 0.9465390749601277,
+      "cv_std": 0.028314994821192915,
+      "test_accuracy": 0.9312977099236641,
+      "precision": 0.9336847017157626,
+      "recall": 0.9312977099236641,
+      "f1_score": 0.930331910253138,
+      "roc_auc": 0.989104938271605
+    }
+  },
+  "best_model": {
+    "name": "Extra Trees",
+    "scores": {
+      "cv_score": 0.9360355434039643,
+      "cv_std": 0.020722350255472446,
+      "test_accuracy": 0.9427480916030534,
+      "precision": 0.9428864248201067,
+      "recall": 0.9427480916030534,
+      "f1_score": 0.9424491376740848,
+      "roc_auc": 0.9768518518518519
+    }
+  },
+  "feature_importance": {
+    "feature": {
+      "8": "boat",
+      "12": "sex_male",
+      "11": "sex_female",
+      "6": "fare",
+      "2": "age",
+      "7": "cabin",
+      "0": "pclass",
+      "10": "home.dest",
+      "5": "ticket",
+      "3": "sibsp",
+      "4": "parch",
+      "13": "embarked_C",
+      "9": "body",
+      "15": "embarked_S",
+      "14": "embarked_Q",
+      "1": "name"
+    },
+    "importance": {
+      "8": 0.5866558296,
+      "12": 0.0910851354,
+      "11": 0.0840202253,
+      "6": 0.0597901168,
+      "2": 0.056074664,
+      "7": 0.0238555794,
+      "0": 0.0228139017,
+      "10": 0.0187964114,
+      "5": 0.0137650329,
+      "3": 0.0113533674,
+      "4": 0.0098781151,
+      "13": 0.0093366668,
+      "9": 0.0060507031,
+      "15": 0.0040657116,
+      "14": 0.002120579,
+      "1": 0.0003379604
+    }
+  },
+  "plots_generated": [
+    "C:\\langfuse\\cherry\\sandbox\\plots\\titanic_automl_feature_importance_20250609_010145.png"
+  ],
+  "recommendations": [
+    "✅ Model trained on complete dataset",
+    "🔧 Consider feature engineering to improve model performance",
+    "⚙️ Try hyperparameter tuning for better results",
+    "🎯 High performance achieved. Validate on new data to avoid overfitting",
+    "🚀 Advanced models included - state-of-the-art performance possible",
+    "🔍 SHAP values available for model interpretation"
+  ],
+  "generated_code": "C:\\langfuse\\cherry\\sandbox\\generated_code\\titanic_automl_automl.py",
+  "performance_summary": {
+    "ranking": [
+      {
+        "rank": 1,
+        "model": "Extra Trees",
+        "Accuracy": 0.9427480916030534
+      },
+      {
+        "rank": 2,
+        "model": "Gradient Boosting",
+        "Accuracy": 0.9389312977099237
+      },
+      {
+        "rank": 3,
+        "model": "XGBoost",
+        "Accuracy": 0.9389312977099237
+      },
+      {
+        "rank": 4,
+        "model": "LightGBM",
+        "Accuracy": 0.9389312977099237
+      },
+      {
+        "rank": 5,
+        "model": "Random Forest",
+        "Accuracy": 0.9351145038167938
+      },
+      {
+        "rank": 6,
+        "model": "CatBoost",
+        "Accuracy": 0.9312977099236641
+      },
+      {
+        "rank": 7,
+        "model": "SVM",
+        "Accuracy": 0.9274809160305344
+      },
+      {
+        "rank": 8,
+        "model": "Logistic Regression",
+        "Accuracy": 0.9236641221374046
+      },
+      {
+        "rank": 9,
+        "model": "Gaussian Process",
+        "Accuracy": 0.9236641221374046
+      },
+      {
+        "rank": 10,
+        "model": "MLP",
+        "Accuracy": 0.9198473282442748
+      },
+      {
+        "rank": 11,
+        "model": "Decision Tree",
+        "Accuracy": 0.916030534351145
+      },
+      {
+        "rank": 12,
+        "model": "K-Nearest Neighbors",
+        "Accuracy": 0.9083969465648855
+      },
+      {
+        "rank": 13,
+        "model": "QDA",
+        "Accuracy": 0.5343511450381679
+      },
+      {
+        "rank": 14,
+        "model": "Naive Bayes",
+        "Accuracy": 0.4961832061068702
+      }
+    ],
+    "best_model": "Extra Trees",
+    "key_metric": "Accuracy"
+  },
+  "sampling_info": {
+    "data_is_sampled": false,
+    "note": "Model trained on full dataset"
+  }
+}

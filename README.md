@@ -109,10 +109,10 @@
 
 ### 입력 형식
 - **CSV**: `.csv` (가장 권장)
-- **Excel**: `.xlsx`, `.xls`
-- **JSON**: `.json`
-- **Parquet**: `.parquet`
-- **텍스트**: `.txt`, `.tsv`
+- ~~**Excel**: `.xlsx`, `.xls`~~
+- ~~**JSON**: `.json`~~
+- ~~**Parquet**: `.parquet`~~
+- ~~**텍스트**: `.txt`, `.tsv`~~
 
 ### 출력 형식
 - **데이터**: CSV
@@ -164,9 +164,6 @@ uv pip install -e .
 
 # 4. 고급 기능 설치 (선택적)
 uv pip install -e ".[all]"  # 모든 고급 기능 한번에 설치
-
-# 5. 서버 실행
-python mcp_data_science.py --sandbox-dir .\sandbox --port 8007
 ```
 
 ### 3. 서버 실행
@@ -179,9 +176,9 @@ python mcp_data_science.py
 uv run --isolated mcp_data_science.py
 
 # 커스텀 설정
-python mcp_data_science.py --sandbox-dir ./my_sandbox --port 8008
+uv run --isolated --sandbox-dir ./my_sandbox --port 8008
 
-# 모든 고급 기능과 함께 실행
+# 모든 고급 기능과 함께 실행 (시간이 수 분 걸릴 수 있습니다.)
 uv run --isolated --extra all mcp_data_science.py
 ```
 
@@ -421,6 +418,170 @@ tail -f sandbox/logs/operation_*.json
 
 # 서버 로그 확인 (콘솔 출력)
 ```
+
+## ⚙️ MCP 서버 설정
+
+MCP 서버를 사용하려면 설정 파일을 구성해야 합니다.
+
+사용하고자 하는 환경의 MCP 설정 파일을 열어 아래 내용을 추가하여 사용할 수 있습니다.
+
+#### 설정 파일 내용
+
+```json
+{
+  "mcpServers": {
+    "data-science": {
+      "transport": "sse",
+      "url": "http://localhost:8007/sse"
+    }
+  }
+}
+```
+
+### 포트 설정
+
+기본 포트 8007이 사용 중인 경우 다른 포트를 사용할 수 있습니다:
+
+```bash
+# 포트 사용 확인 (Linux/Mac)
+lsof -i :8007
+
+# 포트 사용 확인 (Windows)
+netstat -an | findstr :8007
+
+# 다른 포트로 서버 실행
+python mcp_data_science.py --port 8008
+```
+
+설정 파일에서도 해당 포트로 변경:
+```json
+{
+  "mcpServers": {
+    "data-science": {
+      "transport": "sse",
+      "url": "http://localhost:8008/sse"
+    }
+  }
+}
+```
+
+## 🎯 MCP 호출 예제
+
+다음은 Claude Desktop에서 데이터 사이언스 MCP 서버를 사용하는 실제 예제입니다.
+
+![MCP 사용 예제](images/mcp_sample.jpg)
+
+### 🔥 **[📑 종합 분석 보고서 보기](samples/titanic/reports/comprehensive_report_report_104896aa_20250609_010152.md)** 🔥
+
+
+### 📊 기본 데이터 분석 워크플로우
+
+```plaintext
+사용자: "CSV 파일을 업로드하고 데이터 분석을 해주세요."
+
+Claude: upload_local_file() → load_dataset() → perform_eda() → auto_ml_pipeline()
+```
+
+### 🔍 단계별 MCP 도구 호출
+
+#### 1. 환경 확인
+```plaintext
+사용자: "데이터 사이언스 서버가 정상 작동하는지 확인해주세요."
+
+Claude가 호출: health_check()
+```
+
+#### 2. 파일 업로드
+```plaintext
+사용자: "로컬에 있는 sales_data.csv 파일을 분석해주세요."
+
+Claude가 호출:
+1. upload_local_file('/path/to/sales_data.csv')
+2. load_dataset('sales_data_20241207_143052.csv')
+```
+
+#### 3. 탐색적 데이터 분석
+```plaintext
+사용자: "데이터의 기본 특성과 분포를 확인해주세요."
+
+Claude가 호출:
+1. perform_eda(dataset_id='dataset_123')
+2. create_visualization(dataset_id='dataset_123', plot_type='pairplot')
+```
+
+#### 4. 머신러닝 모델링
+```plaintext
+사용자: "매출 예측 모델을 만들어주세요."
+
+Claude가 호출:
+1. auto_ml_pipeline(
+     dataset_id='dataset_123',
+     target_column='sales',
+     include_advanced=True
+   )
+```
+
+#### 5. 결과 보고서 생성
+```plaintext
+사용자: "전체 분석 결과를 정리한 보고서를 만들어주세요."
+
+Claude가 호출:
+1. generate_comprehensive_report()
+2. list_generated_code()
+```
+
+### 💡 고급 사용 시나리오
+
+#### 대용량 데이터 처리
+```plaintext
+사용자: "500MB 고객 데이터를 분석해주세요. 메모리 효율적으로 처리해주세요."
+
+Claude의 자동 처리:
+1. upload_local_file() → 자동 샘플링 감지
+2. load_dataset() → 층화표집으로 30,000행 샘플 생성
+3. perform_eda() → 샘플 데이터로 EDA 수행
+4. auto_ml_pipeline() → 고급 알고리즘으로 모델링
+```
+
+#### 문제 유형 자동 감지
+```plaintext
+사용자: "이 데이터셋으로 무엇을 분석할 수 있는지 알려주세요."
+
+Claude가 호출:
+1. load_dataset() → 자동 문제 유형 감지
+2. 결과: "분류 문제로 감지, 추천 타겟: 'customer_churn'"
+```
+
+#### 커스텀 시각화
+```plaintext
+사용자: "연령대별 구매 패턴을 시각화해주세요."
+
+Claude가 호출:
+create_visualization(
+  dataset_id='dataset_123',
+  plot_type='boxplot',
+  x_column='age_group',
+  y_column='purchase_amount',
+  title='연령대별 구매 패턴'
+)
+```
+
+### 🚀 실제 사용 팁
+
+1. **효율적인 워크플로우**
+   - 먼저 `health_check`로 서버 상태 확인
+   - `upload_local_file` → `load_dataset` → `perform_eda` 순서로 진행
+   - 큰 데이터는 자동 샘플링 결과를 먼저 확인
+
+2. **오류 처리**
+   - 파일 업로드 실패 시 `get_upload_instructions` 확인
+   - 메모리 부족 시 더 작은 샘플 크기 요청
+   - 모델링 실패 시 `get_operation_details`로 상세 정보 확인
+
+3. **결과 활용**
+   - `list_generated_code`로 재현 가능한 Python 코드 확인
+   - `generate_comprehensive_report`로 전문적인 분석 보고서 생성
+   - 생성된 모델은 `sandbox/models/`에서 확인 가능
 
 ## 📝 라이센스
 

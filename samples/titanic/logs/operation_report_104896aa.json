@@ -1,0 +1,26 @@
+{
+  "id": "report_104896aa",
+  "type": "create_comprehensive_report",
+  "timestamp": "2025-06-09T01:01:52.034537",
+  "input": {
+    "operations": [
+      "titanic_upload",
+      "titanic_load",
+      "titanic_eda",
+      "titanic_automl"
+    ],
+    "report_title": "타이타닉 생존 예측 AutoML 분석 보고서",
+    "dataset_name": "Titanic Dataset"
+  },
+  "output": {
+    "report_id": "report_104896aa",
+    "report_path": "C:\\langfuse\\cherry\\sandbox\\reports\\comprehensive_report_report_104896aa_20250609_010152.md",
+    "report_filename": "comprehensive_report_report_104896aa_20250609_010152.md",
+    "report_size_kb": 10.5966796875
+  },
+  "files_created": [
+    "C:\\langfuse\\cherry\\sandbox\\reports\\comprehensive_report_report_104896aa_20250609_010152.md"
+  ],
+  "metrics": {},
+  "status": "completed"
+}
